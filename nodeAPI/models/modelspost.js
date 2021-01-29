@@ -1,19 +1,23 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-// const postSchema = new mongoose.Schema({
-//     title: {
-//         type: String,
-//         required: "Title is required",
-//         minlength: 4,
-//         maxlength: 200
-//     },
+//Post Schema, requiring certain qualities of post 
 
-//     body:{
-//         type: String,
-//         required: "Content is required",
-//         minlength: 4,
-//         maxlength: 20000
-//     }
-// });
+const postSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: "Title is required",
+        minlength: 2,
+        maxlength: 250
+    },
 
-// module.exports = mongoose.model("Post", postSchema)
+    body: {
+        type: String,
+        required: "Content is required",
+        minlength: 2,
+        maxlength: 10000
+    }
+});
+
+module.exports = mongoose.model("Post", postSchema)
+
+// mongooose model is a method creating a model
