@@ -6,14 +6,14 @@ const postSchema = new mongoose.Schema({
     title: {
         type: String,
         required: "Title is required",
-        minlength: 2,
+        minlength: 1,
         maxlength: 250
     },
 
     body: {
         type: String,
         required: "Content is required",
-        minlength: 2,
+        minlength: 1,
         maxlength: 10000
     }
 });
