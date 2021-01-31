@@ -27,3 +27,32 @@ exports.createPostValidator = (req, res, next) => {
     // proceed to next middleware
     next();
 };
+
+
+// User signup validator 
+
+
+exports.userSignupValidator = (req, res, next) => {
+    // check for name - is not null and between 2-30 char 
+    req.check("name", "Name cannot be empty").notEmpty();
+    //check for email,  email format with @
+    req.check("email", "Email should be email format")
+    .matches(/.+\@.+\..+/)
+    .withMessage("Email must be email format")
+    // check for password, not empty, minimum length, and contains digit
+    req.check("password", "Password is required").notEmpty();
+    req.check("password")
+    .isLength({min: 5})
+    .withMessage("Password must be at least 5 characters")
+    .matches(/\d/)
+    .withMessage("Password must contain at least one digit")
+    //check for errors
+    const errors = req.validationErrors();
+    // if error show the first one as they happen
+        if (errors) {
+            const firstError = errors.map(error => error.msg)[0];
+            return res.status(400).json({ error: firstError });
+        }
+        // proceed to next middleware
+        next();
+}

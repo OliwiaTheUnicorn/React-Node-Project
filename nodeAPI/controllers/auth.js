@@ -9,7 +9,7 @@ exports.signup = async (req, res) => {
     });
     const user = await new User(req.body);
     await user.save();
-    res.status(200).json({user});
+    res.status(200).json({ message: "You signed up successfully. Please login"});
 };
 
 

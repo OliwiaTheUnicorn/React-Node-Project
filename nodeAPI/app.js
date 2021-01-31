@@ -9,7 +9,7 @@ dotenv.config();
 
 // connect with db
 
-mongoose.connect(process.env.MONGO_URI,{useUnifiedTopology: true, useNewUrlParser: true }).then(() => console.log(' FUCKING Success'));
+mongoose.connect(process.env.MONGO_URI,{useUnifiedTopology: true, useNewUrlParser: true }).then(() => console.log('Connected with DB succesfully'));
 mongoose.connection.on('error', err => {
     console.log('error:')
 });
