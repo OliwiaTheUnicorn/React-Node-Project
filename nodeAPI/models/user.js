@@ -48,9 +48,16 @@ userSchema
     return this._password;
 })
 
-// method for encrypting password, inbuild from node.js
+// method for encrypting password inbuild from node.js, and authenticate function  used in signin
 
 userSchema.methods = {
+
+    //signin method in user model 
+
+    authenticate: function (plainText) {
+        return this.encryptedPassword(plainText) === this.hashed_password
+    },
+
     encryptedPassword: function(password) {
         if(!password) return "";
         try {
