@@ -67,3 +67,4 @@ exports.requireSignin = expressJwt({
     secret: process.env.JTW_SECRET, algorithms: ['HS256'],
     userProperty: "auth"
 });
+

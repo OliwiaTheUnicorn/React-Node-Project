@@ -20,6 +20,7 @@ mongoose.connection.on('error', err => {
 const postRoutes = require('./routes/routespost');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
+const { db } = require('./models/user');
 
 //middleware
 app.use(morgan('dev'));
@@ -39,3 +40,5 @@ app.use(function (err, req, res, next) {
 
 const port = process.env.PORT || 8080 ;
 app.listen(port);
+
+
