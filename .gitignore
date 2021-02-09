@@ -1,5 +1,5 @@
-node_modules
-node_modules/*
+nodeAPI/node_modules
+nodeAPI/node_modules/*
 nodeAPI/.env
 .env
 
