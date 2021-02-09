@@ -27,7 +27,7 @@ const { db } = require('./models/user');
 //api docs
 
 app.get('/', (req, res) => {
-  fs.readFile('docs/apiDocs.json', (err, data) => {
+  fs.readFile('docs/docs.json', (err, data) => {
     if(err) {
       res.status(400).json({
         error: err

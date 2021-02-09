@@ -4,12 +4,9 @@
     "/signin": "signin",
     "/signout": "signout",
     "/users": "get all users",
-    "/user/:userId": "get user",
-    "/user/:userId": "update user",
-    "/user/:userId": "delete user",
+    "/user/:userId": "get user, delete, update",
     "/posts": "get all posts",
     "/posts/by/:userId": "get posts by user",
     "/post /new/:userId": "create new post",
-    "/post/:postId": "update post",
-    "/post/:postId": "delete post",
+    "/post/:postId": "update post, delete"
 }
