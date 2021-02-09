@@ -12,7 +12,6 @@ exports.postById = (req, res, next, id) => {
                 error: err 
             })
         }
-
         req.post = post;
         next()
     })
@@ -91,7 +90,7 @@ exports.isPoster = (req, res, next) => {
 }
 
 exports.updatePost = (req, res, next) => {
-    let post = req.post
+    let post = req.post;
     post = _.extend(post, req.body);
     post.updated = Date.now();
     post.save(err => {

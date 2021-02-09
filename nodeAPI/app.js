@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
 const fs = require('fs');
+const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -26,7 +27,7 @@ const { db } = require('./models/user');
 //api docs
 
 app.get('/', (req, res) => {
-  fs.readFile('docs/apiDocs.json', (err, data) => {
+  fs.readFile('docs/docs.json', (err, data) => {
     if(err) {
       res.status(400).json({
         error: err
@@ -42,6 +43,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(expressValidator());
+app.use(cors());
 app.use("/", postRoutes);
 app.use("/", authRoutes);
 app.use("/", userRoutes);
