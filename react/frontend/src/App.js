@@ -1,34 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import{BrowserRouter} from 'react-router-dom';
+import MainRouter from "./MainRouter"
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: []
-    };
-  }
+const App = () => (
+  <BrowserRouter>
+    <MainRouter />
+  </BrowserRouter>
+)
 
-  getUsers() {
-      axios('https://api.randomuser.me/?nat=US&results=5')
-      .then(response => this.setState({
-        users: response.data.results
-      })
-    )
-  }
-
-  componentWillMount() {
-    this.getUsers();
-  }
-
-  render() {
-    return <div className="App">
-      {this.state.users.map(user => <div>
-       <h3>{user.name.first}</h3>
-       <p>{user.email}</p> 
-     </div>)}
-    </div>
-  }
-}
 export default App;
 
