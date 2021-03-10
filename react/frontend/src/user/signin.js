@@ -8,7 +8,8 @@ class Signin extends Component {
             email: "",
             password: "",
             error: "",
-            redirectToReferer: false
+            redirectToReferer: false,
+           // loading: false
         };
     }
 
@@ -26,6 +27,7 @@ authenticate(jwt, next) {
 
 clickSubmit = event => {
     event.preventDefault()
+    //this.setState({loading: true})
     const {email, password} = this.state;
     const user = {
         email,
@@ -34,7 +36,7 @@ clickSubmit = event => {
 
     this.signin(user).then(data => {
         if(data.error) {
-             this.setState({error: data.error})
+             this.setState({ error: data.error, loading:false})
         } else {
             //authenticate
             this.authenticate(data, () => {
